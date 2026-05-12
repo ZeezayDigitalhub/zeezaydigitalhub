@@ -43,6 +43,9 @@ function ContactPage() {
               <a href="https://www.upwork.com/" target="_blank" rel="noreferrer" className="flex items-center gap-3 p-4 rounded-xl hairline hover:border-primary/40 transition">
                 <Briefcase className="h-5 w-5 text-primary" /><div><div className="text-sm font-medium">Upwork</div><div className="text-xs text-muted-foreground">Hire on Upwork</div></div>
               </a>
+              <a href="mailto:zeezaydigital@gmail.com" className="col-span-2 flex items-center gap-3 p-4 rounded-xl hairline hover:border-primary/40 transition">
+                <Mail className="h-5 w-5 text-primary" /><div><div className="text-sm font-medium">zeezaydigital@gmail.com</div><div className="text-xs text-muted-foreground">Email — replies within 24h</div></div>
+              </a>
               <a href="https://calendly.com/" target="_blank" rel="noreferrer" className="col-span-2 flex items-center gap-3 p-4 rounded-xl bg-primary/10 hairline border-primary/40 hover:bg-primary/20 transition">
                 <Calendar className="h-5 w-5 text-primary" /><div><div className="text-sm font-medium">Calendly</div><div className="text-xs text-muted-foreground">Book a free 30-min consultation</div></div>
               </a>
