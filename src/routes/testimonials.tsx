@@ -80,8 +80,8 @@ function TestimonialsPage() {
                   <div className="absolute inset-0 grid place-items-center">
                     <div className="flex flex-col items-center gap-3">
                       <PlayCircle className="h-20 w-20 text-primary group-hover:scale-110 transition drop-shadow-[0_0_30px_oklch(0.82_0.14_85_/_0.6)]" />
-                      <div className="font-display text-xl">{v.title}</div>
-                      <div className="text-xs text-muted-foreground">Watch on Google Drive</div>
+                      <div className="font-display text-xl text-center px-4">{v.title}</div>
+                      <div className="text-xs text-muted-foreground">{v.subtitle} · Watch on Google Drive</div>
                     </div>
                   </div>
                 </a>
