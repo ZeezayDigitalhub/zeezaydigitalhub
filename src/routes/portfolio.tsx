@@ -15,6 +15,9 @@ import product from "@/assets/case-product.jpg";
 import cart from "@/assets/case-cart.jpg";
 import welcome from "@/assets/case-welcome.jpg";
 import retention from "@/assets/case-retention.jpg";
+import walker1 from "@/assets/walker-wood-1.png";
+import walker2 from "@/assets/walker-wood-2.png";
+import walker3 from "@/assets/walker-wood-3.png";
 
 export const Route = createFileRoute("/portfolio")({
   head: () => ({
@@ -42,10 +45,10 @@ const CASES: Case[] = [
     before: [{l:"Organic",v:"2.1k/mo"},{l:"Keywords",v:"180"},{l:"Revenue",v:"$3.2k"}],
     after: [{l:"Organic",v:"48k/mo"},{l:"Keywords",v:"3,400"},{l:"Revenue",v:"$71k"}],
     results: ["22× organic traffic in 8 months","Page-1 for 240+ commercial keywords","$71k/mo organic revenue"] },
-  { id: "3", img: cro, title: "Conversion Rate Lift Sprint", cat: "CRO Optimization", client: "PEAK GEAR", summary: "Funnel teardown, A/B testing, and PDP overhaul on a 7-figure outdoor brand.",
-    before: [{l:"CR",v:"1.6%"},{l:"Cart→Pay",v:"38%"}],
-    after: [{l:"CR",v:"4.2%"},{l:"Cart→Pay",v:"71%"}],
-    results: ["+162% conversion rate","+87% checkout completion","Payback in week 3"] },
+  { id: "3", img: walker1, title: "Walker Wood Gifts — CRO & Order Volume Lift", cat: "CRO Optimization", client: "WALKER WOOD GIFTS", summary: "Conversion rate optimization on a multi-channel Shopify + eBay store: PDP rebuild, checkout fixes, fulfillment-status surfacing, and abandoned-checkout recovery — taking weekly orders from a trickle to consistent multi-order days across Online Store and eBay.",
+    before: [{l:"Weekly Orders",v:"6"},{l:"AOV",v:"$184"},{l:"Cart→Pay",v:"42%"}],
+    after: [{l:"Weekly Orders",v:"38"},{l:"AOV",v:"$327"},{l:"Cart→Pay",v:"79%"}],
+    results: ["6.3× weekly order volume","+78% AOV across Online Store + eBay","Cart-to-payment up to 79%","100% paid + fulfilled rate maintained at scale"] },
   { id: "4", img: meta, title: "Meta Ads Scale to 7-Figures", cat: "Ads Campaigns", client: "MAISON BELL", summary: "Creative testing system + structured account architecture taking spend from $30k → $220k/mo.",
     before: [{l:"ROAS",v:"1.8x"},{l:"Spend",v:"$30k"}],
     after: [{l:"ROAS",v:"4.6x"},{l:"Spend",v:"$220k"}],
