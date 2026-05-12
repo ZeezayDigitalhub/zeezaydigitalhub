@@ -86,10 +86,32 @@ const CASES: Case[] = [
 
 const cats = ["All","Shopify SEO","Store Redesign","CRO Optimization","Ecommerce Marketing","Ads Campaigns","Pinterest Marketing","Product Optimization","Email Marketing Campaigns","Klaviyo Automation","Brevo Campaigns"];
 
+const POOL = [shopify, seo, meta, klaviyo, pinterest, cro, brevo, google, product, cart, welcome, retention];
+
+function getGallery(c: Case): string[] {
+  const idx = CASES.findIndex((x) => x.id === c.id);
+  return [c.img, POOL[(idx + 4) % POOL.length], POOL[(idx + 7) % POOL.length]];
+}
+
+function parseNum(s: string): number | null {
+  const m = s.match(/-?\d+(\.\d+)?/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function delta(b: string, a: string): string | null {
+  const bn = parseNum(b); const an = parseNum(a);
+  if (bn === null || an === null || bn === 0) return null;
+  const pct = ((an - bn) / bn) * 100;
+  const sign = pct >= 0 ? "+" : "";
+  return `${sign}${Math.round(pct)}%`;
+}
+
 function PortfolioPage() {
   const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState<Case | null>(null);
+  const [gIdx, setGIdx] = useState(0);
   const visible = filter === "All" ? CASES : CASES.filter((c) => c.cat === filter);
+  const gallery = open ? getGallery(open) : [];
 
   return (
     <div>
