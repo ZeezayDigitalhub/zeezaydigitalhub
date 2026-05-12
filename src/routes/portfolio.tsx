@@ -142,7 +142,7 @@ function PortfolioPage() {
         <div className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visible.map((c, i) => (
             <Reveal key={c.id} delay={(i % 3) * 0.08}>
-              <button onClick={() => setOpen(c)} className="group text-left w-full h-full">
+              <button onClick={() => { setOpen(c); setGIdx(0); }} className="group text-left w-full h-full">
                 <div className="rounded-2xl overflow-hidden hairline bg-card/40 hover:border-primary/50 transition hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <img src={c.img} alt={c.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
