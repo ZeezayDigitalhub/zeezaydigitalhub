@@ -13,6 +13,9 @@ export function Footer() {
           <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
             Premium ecommerce growth, conversion optimization, and high-performance email marketing for serious Shopify brands.
           </p>
+          <a href="mailto:zeezaydigital@gmail.com" className="mt-4 inline-flex items-center gap-2 text-sm text-primary hover:underline">
+            <Mail className="h-4 w-4" /> zeezaydigital@gmail.com
+          </a>
           <div className="flex gap-3 mt-5">
             <a href="https://www.instagram.com/zeezaydigital?utm_source=qr" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
             <a href="https://x.com/zeezaydigital?s=21" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="X"><Twitter className="h-4 w-4" /></a>
