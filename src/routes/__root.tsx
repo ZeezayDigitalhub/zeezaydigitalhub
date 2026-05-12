@@ -11,7 +11,6 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
-import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 
 function NotFoundComponent() {
   return (
@@ -55,10 +54,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "ZeezayDigital — Shopify Growth & Ecommerce Marketing Specialist" },
       { name: "description", content: "Shopify growth expert helping ecommerce brands increase conversions, recover lost sales, and scale profitably with CRO, SEO, paid ads, and high-converting email marketing." },
       { name: "author", content: "ZeezayDigital" },
-      { property: "og:title", content: "ZeezayDigital — Shopify Growth & Ecommerce Marketing" },
-      { property: "og:description", content: "Premium Shopify, CRO, SEO, paid ads, and email marketing for serious ecommerce brands." },
+      { property: "og:title", content: "ZeezayDigital — Shopify Growth & Ecommerce Marketing Specialist" },
+      { property: "og:description", content: "Shopify growth expert helping ecommerce brands increase conversions, recover lost sales, and scale profitably with CRO, SEO, paid ads, and high-converting email marketing." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "ZeezayDigital — Shopify Growth & Ecommerce Marketing Specialist" },
+      { name: "twitter:description", content: "Shopify growth expert helping ecommerce brands increase conversions, recover lost sales, and scale profitably with CRO, SEO, paid ads, and high-converting email marketing." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cc9527d1-bf24-4af0-83d0-daf05836475c/id-preview-de761177--bf634ebb-a678-4710-96fd-08fdf2ea70c5.lovable.app-1778558094529.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/cc9527d1-bf24-4af0-83d0-daf05836475c/id-preview-de761177--bf634ebb-a678-4710-96fd-08fdf2ea70c5.lovable.app-1778558094529.png" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -91,7 +94,6 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
-      <WhatsAppFab />
     </QueryClientProvider>
   );
 }
