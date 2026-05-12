@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
-import { X, TrendingUp, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { X, TrendingUp, ArrowRight, Calendar, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import shopify from "@/assets/case-shopify.jpg";
 import seo from "@/assets/case-seo.jpg";
 import meta from "@/assets/case-meta.jpg";
@@ -85,10 +86,32 @@ const CASES: Case[] = [
 
 const cats = ["All","Shopify SEO","Store Redesign","CRO Optimization","Ecommerce Marketing","Ads Campaigns","Pinterest Marketing","Product Optimization","Email Marketing Campaigns","Klaviyo Automation","Brevo Campaigns"];
 
+const POOL = [shopify, seo, meta, klaviyo, pinterest, cro, brevo, google, product, cart, welcome, retention];
+
+function getGallery(c: Case): string[] {
+  const idx = CASES.findIndex((x) => x.id === c.id);
+  return [c.img, POOL[(idx + 4) % POOL.length], POOL[(idx + 7) % POOL.length]];
+}
+
+function parseNum(s: string): number | null {
+  const m = s.match(/-?\d+(\.\d+)?/);
+  return m ? parseFloat(m[0]) : null;
+}
+
+function delta(b: string, a: string): string | null {
+  const bn = parseNum(b); const an = parseNum(a);
+  if (bn === null || an === null || bn === 0) return null;
+  const pct = ((an - bn) / bn) * 100;
+  const sign = pct >= 0 ? "+" : "";
+  return `${sign}${Math.round(pct)}%`;
+}
+
 function PortfolioPage() {
   const [filter, setFilter] = useState("All");
   const [open, setOpen] = useState<Case | null>(null);
+  const [gIdx, setGIdx] = useState(0);
   const visible = filter === "All" ? CASES : CASES.filter((c) => c.cat === filter);
+  const gallery = open ? getGallery(open) : [];
 
   return (
     <div>
@@ -119,7 +142,7 @@ function PortfolioPage() {
         <div className="mx-auto max-w-7xl px-6 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {visible.map((c, i) => (
             <Reveal key={c.id} delay={(i % 3) * 0.08}>
-              <button onClick={() => setOpen(c)} className="group text-left w-full h-full">
+              <button onClick={() => { setOpen(c); setGIdx(0); }} className="group text-left w-full h-full">
                 <div className="rounded-2xl overflow-hidden hairline bg-card/40 hover:border-primary/50 transition hover:-translate-y-1 hover:shadow-[var(--shadow-gold)]">
                   <div className="aspect-[4/3] overflow-hidden relative">
                     <img src={c.img} alt={c.title} loading="lazy" className="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
@@ -141,27 +164,62 @@ function PortfolioPage() {
       </section>
 
       {open && (
-        <div className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-md grid place-items-center p-4 overflow-y-auto" onClick={() => setOpen(null)}>
-          <div className="relative max-w-3xl w-full bg-card rounded-3xl hairline overflow-hidden my-8" onClick={(e) => e.stopPropagation()}>
-            <button onClick={() => setOpen(null)} className="absolute top-4 right-4 z-10 h-9 w-9 grid place-items-center rounded-full bg-background/80 hover:bg-primary hover:text-primary-foreground transition" aria-label="Close"><X className="h-4 w-4" /></button>
-            <img src={open.img} alt={open.title} className="w-full aspect-[16/9] object-cover" />
+        <div className="fixed inset-0 z-[60] bg-background/80 backdrop-blur-md grid place-items-start justify-center p-4 overflow-y-auto" onClick={() => setOpen(null)}>
+          <div className="relative max-w-4xl w-full bg-card rounded-3xl hairline overflow-hidden my-8 animate-scale-in" onClick={(e) => e.stopPropagation()}>
+            <button onClick={() => setOpen(null)} className="absolute top-4 right-4 z-20 h-9 w-9 grid place-items-center rounded-full bg-background/80 hover:bg-primary hover:text-primary-foreground transition" aria-label="Close"><X className="h-4 w-4" /></button>
+
+            {/* Gallery */}
+            <div className="relative aspect-[16/9] bg-background overflow-hidden">
+              <img key={gallery[gIdx]} src={gallery[gIdx]} alt={`${open.title} screenshot ${gIdx + 1}`} className="w-full h-full object-cover animate-fade-in" />
+              <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent pointer-events-none" />
+              <button onClick={() => setGIdx((gIdx - 1 + gallery.length) % gallery.length)} aria-label="Previous" className="absolute left-3 top-1/2 -translate-y-1/2 h-10 w-10 grid place-items-center rounded-full bg-background/70 hover:bg-primary hover:text-primary-foreground backdrop-blur transition"><ChevronLeft className="h-5 w-5" /></button>
+              <button onClick={() => setGIdx((gIdx + 1) % gallery.length)} aria-label="Next" className="absolute right-3 top-1/2 -translate-y-1/2 h-10 w-10 grid place-items-center rounded-full bg-background/70 hover:bg-primary hover:text-primary-foreground backdrop-blur transition"><ChevronRight className="h-5 w-5" /></button>
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-1.5">
+                {gallery.map((_, i) => (
+                  <button key={i} onClick={() => setGIdx(i)} aria-label={`Slide ${i + 1}`} className={`h-1.5 rounded-full transition-all ${i === gIdx ? "w-6 bg-primary" : "w-1.5 bg-foreground/40 hover:bg-foreground/70"}`} />
+                ))}
+              </div>
+            </div>
+
+            {/* Thumbnails */}
+            <div className="px-8 pt-4 flex gap-2">
+              {gallery.map((src, i) => (
+                <button key={i} onClick={() => setGIdx(i)} className={`relative h-16 w-24 rounded-lg overflow-hidden hairline transition ${i === gIdx ? "ring-2 ring-primary" : "opacity-60 hover:opacity-100"}`}>
+                  <img src={src} alt="" className="w-full h-full object-cover" />
+                </button>
+              ))}
+            </div>
+
             <div className="p-8">
               <span className="text-xs uppercase tracking-widest text-primary">{open.cat}</span>
               <h3 className="mt-2 text-2xl md:text-3xl font-bold">{open.title}</h3>
               <p className="mt-1 text-sm text-muted-foreground">{open.client}</p>
               <p className="mt-4 text-muted-foreground">{open.summary}</p>
 
-              <div className="mt-6 grid grid-cols-2 gap-4">
-                <div className="rounded-2xl p-5 hairline">
+              {/* Before / After with deltas */}
+              <div className="mt-6 grid md:grid-cols-2 gap-4">
+                <div className="rounded-2xl p-5 hairline bg-background/40">
                   <div className="text-xs uppercase tracking-widest text-muted-foreground mb-3">Before</div>
                   <div className="space-y-2">
                     {open.before.map((b) => (<div key={b.l} className="flex justify-between text-sm"><span className="text-muted-foreground">{b.l}</span><span className="font-mono">{b.v}</span></div>))}
                   </div>
                 </div>
-                <div className="rounded-2xl p-5 hairline ring-gold">
-                  <div className="text-xs uppercase tracking-widest text-primary mb-3">After</div>
+                <div className="rounded-2xl p-5 hairline ring-gold bg-primary/5">
+                  <div className="text-xs uppercase tracking-widest text-primary mb-3 flex items-center gap-1.5"><Sparkles className="h-3 w-3" /> After</div>
                   <div className="space-y-2">
-                    {open.after.map((b) => (<div key={b.l} className="flex justify-between text-sm"><span className="text-muted-foreground">{b.l}</span><span className="font-mono text-primary">{b.v}</span></div>))}
+                    {open.after.map((a, i) => {
+                      const b = open.before[i];
+                      const d = b ? delta(b.v, a.v) : null;
+                      return (
+                        <div key={a.l} className="flex justify-between items-center text-sm">
+                          <span className="text-muted-foreground">{a.l}</span>
+                          <span className="flex items-center gap-2">
+                            <span className="font-mono text-primary font-semibold">{a.v}</span>
+                            {d && <span className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-primary/15 text-primary">{d}</span>}
+                          </span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -169,8 +227,26 @@ function PortfolioPage() {
               <div className="mt-6">
                 <div className="text-xs uppercase tracking-widest text-primary mb-3">Results</div>
                 <ul className="space-y-2">
-                  {open.results.map((r) => (<li key={r} className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-primary" />{r}</li>))}
+                  {open.results.map((r) => (<li key={r} className="flex items-center gap-2 text-sm"><ArrowRight className="h-4 w-4 text-primary shrink-0" />{r}</li>))}
                 </ul>
+              </div>
+
+              {/* Strong CTA */}
+              <div className="mt-8 rounded-2xl p-6 md:p-7 bg-gradient-to-br from-primary/15 via-primary/5 to-transparent hairline ring-gold">
+                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                  <div className="flex-1">
+                    <div className="text-xs uppercase tracking-widest text-primary mb-1">Want results like {open.client}?</div>
+                    <h4 className="text-lg md:text-xl font-bold">Book a free 30-min growth consultation.</h4>
+                    <p className="text-sm text-muted-foreground mt-1">Audit your funnel, ads, and email — leave with a custom growth plan.</p>
+                  </div>
+                  <Link
+                    to="/contact"
+                    onClick={() => setOpen(null)}
+                    className="inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full bg-primary text-primary-foreground font-semibold shadow-[var(--shadow-gold)] hover:scale-105 transition whitespace-nowrap"
+                  >
+                    <Calendar className="h-4 w-4" /> Book Consultation
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
