@@ -3,7 +3,8 @@ import { Reveal } from "@/components/site/Reveal";
 import {
   ShoppingBag, Search, PaintBucket, BarChart3, Wrench, Megaphone, Target,
   Image as ImageIcon, FileText, GitMerge, Users, Mail, Send, RefreshCcw,
-  Heart, Repeat, Inbox, ShoppingCart, Newspaper, TrendingUp, ArrowRight, Layers
+  Heart, Repeat, Inbox, ShoppingCart, Newspaper, TrendingUp, ArrowRight, Layers,
+  Globe, Music2, Magnet, Store
 } from "lucide-react";
 
 export const Route = createFileRoute("/services")({
@@ -20,8 +21,10 @@ export const Route = createFileRoute("/services")({
 
 const groups = [
   {
-    title: "Shopify & Ecommerce",
+    title: "Ecommerce & Website Marketing",
     items: [
+      { icon: TrendingUp, t: "Ecommerce Marketing", d: "Full-funnel growth for any ecommerce brand — Shopify, WooCommerce, BigCommerce, custom stores." },
+      { icon: Globe, t: "Website Marketing", d: "Marketing for any website or brand — service businesses, SaaS, bookings, leads, and sales." },
       { icon: ShoppingBag, t: "Shopify Marketing", d: "Full-funnel growth strategy purpose-built for Shopify." },
       { icon: Search, t: "Shopify SEO", d: "Technical, on-page, and content SEO that ranks and converts." },
       { icon: PaintBucket, t: "Store Design & Redesign", d: "Premium store experiences engineered for conversion." },
@@ -35,9 +38,12 @@ const groups = [
       { icon: ShoppingBag, t: "Google Merchant Center", d: "Feed setup, optimization, and Shopping ads ready to scale." },
       { icon: Megaphone, t: "Google Ads", d: "Search, Performance Max, and retargeting at strong ROAS." },
       { icon: Target, t: "Meta Ads", d: "Profitable Facebook & Instagram acquisition campaigns." },
+      { icon: Music2, t: "TikTok Ads", d: "Creator-led TikTok campaigns that drive viral, profitable growth." },
+      { icon: Store, t: "TikTok Shop", d: "TikTok Shop setup, optimization, and affiliate-driven sales." },
       { icon: ImageIcon, t: "Pinterest Marketing", d: "Visual discovery campaigns for evergreen traffic." },
       { icon: FileText, t: "Product Page Optimization", d: "Pages that turn browsers into buyers." },
       { icon: GitMerge, t: "Sales Funnel Design", d: "Offer architecture and funnels that maximize AOV." },
+      { icon: Magnet, t: "Lead Magnet Design", d: "High-converting lead magnets that grow your list and pipeline." },
       { icon: Users, t: "Affiliate Recruitment", d: "Partner programs that drive scalable revenue." },
     ],
   },

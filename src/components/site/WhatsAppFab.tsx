@@ -1,7 +1,7 @@
 import { MessageCircle } from "lucide-react";
 
 export function WhatsAppFab() {
-  const href = "https://wa.me/2348000000000"; // update with real number
+  const href = "https://wa.me/16822965077";
   return (
     <a
       href={href}
@@ -11,7 +11,7 @@ export function WhatsAppFab() {
       className="group fixed bottom-6 right-6 z-50 flex items-center"
     >
       <span className="hidden sm:block mr-3 px-3 py-2 rounded-full bg-card hairline text-xs font-medium opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition shadow-lg">
-        Chat with us on WhatsApp
+        Chat on WhatsApp · +1 (682) 296-5077
       </span>
       <span className="relative">
         <span className="absolute inset-0 rounded-full bg-[#25D366] animate-ping opacity-60" />

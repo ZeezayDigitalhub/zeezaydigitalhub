@@ -17,10 +17,10 @@ export function Footer() {
             <Mail className="h-4 w-4" /> zeezaydigital@gmail.com
           </a>
           <div className="flex gap-3 mt-5">
-            <a href="https://www.instagram.com/zeezaydigital?utm_source=qr" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-            <a href="https://x.com/zeezaydigital?s=21" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="X"><Twitter className="h-4 w-4" /></a>
-            <a href="https://www.facebook.com/profile.php?id=100087442033222" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
-            <a href="https://www.linkedin.com/in/abdulazeez-tiamiyu-04122a322" target="_blank" rel="noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
+            <a href="https://www.instagram.com/zeezaydigital" target="_blank" rel="noopener noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
+            <a href="https://x.com/zeezaydigital?s=21" target="_blank" rel="noopener noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="X"><Twitter className="h-4 w-4" /></a>
+            <a href="https://www.facebook.com/profile.php?id=100087442033222&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
+            <a href="https://www.linkedin.com/in/abdulazeez-tiamiyu-04122a322" target="_blank" rel="noopener noreferrer" className="h-9 w-9 grid place-items-center rounded-full hairline hover:border-primary hover:text-primary transition" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
           </div>
         </div>
 
