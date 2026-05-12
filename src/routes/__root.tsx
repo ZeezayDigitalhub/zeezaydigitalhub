@@ -11,6 +11,7 @@ import {
 import appCss from "../styles.css?url";
 import { Header } from "@/components/site/Header";
 import { Footer } from "@/components/site/Footer";
+import { WhatsAppFab } from "@/components/site/WhatsAppFab";
 
 function NotFoundComponent() {
   return (
@@ -90,6 +91,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFab />
     </QueryClientProvider>
   );
 }
