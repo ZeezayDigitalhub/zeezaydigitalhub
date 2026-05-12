@@ -92,6 +92,7 @@ const cats = ["All","Shopify SEO","Store Redesign","CRO Optimization","Ecommerce
 const POOL = [shopify, seo, meta, klaviyo, pinterest, cro, brevo, google, product, cart, welcome, retention];
 
 function getGallery(c: Case): string[] {
+  if (c.id === "3") return [walker1, walker2, walker3];
   const idx = CASES.findIndex((x) => x.id === c.id);
   return [c.img, POOL[(idx + 4) % POOL.length], POOL[(idx + 7) % POOL.length]];
 }
