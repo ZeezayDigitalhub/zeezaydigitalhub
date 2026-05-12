@@ -52,9 +52,9 @@ export function Header() {
         </nav>
 
         <div className="hidden lg:flex items-center gap-3">
-          <a href="https://www.instagram.com/zeezaydigital?utm_source=qr" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
-          <a href="https://www.linkedin.com/in/abdulazeez-tiamiyu-04122a322" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
-          <a href="https://www.facebook.com/profile.php?id=100087442033222" target="_blank" rel="noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
+          <a href="https://www.instagram.com/zeezaydigital" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="Instagram"><Instagram className="h-4 w-4" /></a>
+          <a href="https://www.linkedin.com/in/abdulazeez-tiamiyu-04122a322" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="LinkedIn"><Linkedin className="h-4 w-4" /></a>
+          <a href="https://www.facebook.com/profile.php?id=100087442033222&mibextid=wwXIfr" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition" aria-label="Facebook"><Facebook className="h-4 w-4" /></a>
           <Link
             to="/contact"
             className="ml-3 inline-flex items-center px-5 py-2.5 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:shadow-[var(--shadow-gold)] transition-all"
