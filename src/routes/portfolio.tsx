@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import { Reveal } from "@/components/site/Reveal";
-import { X, TrendingUp, ArrowRight } from "lucide-react";
+import { Link } from "@tanstack/react-router";
+import { X, TrendingUp, ArrowRight, Calendar, Sparkles, ChevronLeft, ChevronRight } from "lucide-react";
 import shopify from "@/assets/case-shopify.jpg";
 import seo from "@/assets/case-seo.jpg";
 import meta from "@/assets/case-meta.jpg";
