@@ -95,6 +95,7 @@ function RootComponent() {
         <Outlet />
       </main>
       <Footer />
+      <WhatsAppFab />
     </QueryClientProvider>
   );
 }
